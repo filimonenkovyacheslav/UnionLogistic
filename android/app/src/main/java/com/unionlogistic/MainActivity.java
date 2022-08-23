@@ -1,6 +1,7 @@
 package com.unionlogistic;
 
 import com.facebook.react.ReactActivity;
+import android.os.Bundle;
 
 public class MainActivity extends ReactActivity {
 
@@ -11,5 +12,13 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     return "UnionLogistic";
+  }
+
+  /**
+   * This change is required to avoid crashes related to View state being not persisted consistently across Activity restarts
+   */
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
   }
 }
