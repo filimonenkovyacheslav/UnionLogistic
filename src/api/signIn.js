@@ -5,9 +5,10 @@ import {signInBegin, signInError, signInSuccess} from '../actions/user';
 export default function signIn(body) {
   const url = appConfig.API_URL + '/api/login';
   const parameters = {
-    method: 'post',
+    method: 'POST',
     headers: {
-      'Content-type': 'application/json',
+      Accept: 'application/json',
+      'Content-type': 'application/json'
     },
     body: JSON.stringify(body),
   };
