@@ -43,6 +43,9 @@ export function signInReducer(state = authInitialState, action) {
         ...state,
         loading: false,
         error: null,
+        token: null,
+        userName: null,
+        userRole: null
       };
 
     default:

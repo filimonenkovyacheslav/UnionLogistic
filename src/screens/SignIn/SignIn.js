@@ -27,6 +27,7 @@ class SignIn extends Component {
 
   handleSignIn(event) {
     event.preventDefault()
+    this.props.clear()
 
     if (!this.state.email || !this.state.password) {
       Alert.alert('Error', 'Email and password are required!')
@@ -36,9 +37,7 @@ class SignIn extends Component {
 
     const body = {
       email: this.state.email,
-      password: this.state.password,
-      // email: 'test@courier.com',
-      // password: '12345678',
+      password: this.state.password
     }
 
     this.props.signIn(body)
@@ -59,7 +58,7 @@ class SignIn extends Component {
       else {
         this.props.clear();
       }
-    }, 1000)
+    }, 1500)
   }
 
 
@@ -85,6 +84,7 @@ class SignIn extends Component {
 
     if (error && !this.state.errorShown) {
       Alert.alert('Error', error.message);
+      this.props.clear();
     }
 
     return (
