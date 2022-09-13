@@ -20,3 +20,19 @@ export const navToWithParams = (screen, props) => {
     navigation.closeDrawer()
   }
 }
+
+export const navToWithScan = (screen, props, data) => {
+  const { navigation } = props
+  navigation.navigate('Home page', {
+   screen: screen,
+   params: {
+     userName: data.userName,
+     token: data.token,
+     userRole: data.userRole,
+     tracking: data.tracking
+   }
+  })
+  if (navigation && navigation.closeDrawer) {
+    navigation.closeDrawer()
+  }
+}

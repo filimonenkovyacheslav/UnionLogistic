@@ -5,6 +5,7 @@ platform :ios, '11.0'
 
 target 'UnionLogistic' do
   config = use_native_modules!
+  permissions_path = '../node_modules/react-native-permissions/ios'
 
   use_react_native!(
     :path => config[:reactNativePath],
@@ -13,6 +14,10 @@ target 'UnionLogistic' do
   )
 
   pod 'react-native-config', :path => '../node_modules/react-native-config'
+
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
 
   target 'UnionLogisticTests' do
     inherit! :complete

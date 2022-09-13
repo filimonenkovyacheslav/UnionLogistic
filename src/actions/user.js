@@ -10,11 +10,12 @@ export function signInBegin() {
 }
 
 export function signInSuccess(data) {
+  const name = data.email.split("@")[0]
   return {
     type: SIGN_IN_SUCCESS,
     payload: {
       token: data.api_token,
-      userName: data.name,
+      userName: name,
       userRole: data.role
     },
   };

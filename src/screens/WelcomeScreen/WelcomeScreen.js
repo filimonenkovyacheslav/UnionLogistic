@@ -36,7 +36,7 @@ class WelcomeScreen extends Component {
           >
             <Text style={styles.buttonWhiteText}>Sign In</Text>
           </TouchableOpacity>
-          <Text style={{marginTop: 50}}>v.0.0.1</Text>
+          <Text style={{marginTop: 50}}>v.0.1.2</Text>
         </View>
       </View>
     )

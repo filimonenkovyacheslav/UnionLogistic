@@ -58,7 +58,7 @@ class SignIn extends Component {
       else {
         this.props.clear();
       }
-    }, 1500)
+    }, 2000)
   }
 
 

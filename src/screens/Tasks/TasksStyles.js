@@ -11,15 +11,6 @@ export default StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold'
   },
-  languageBox: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 35
-  },
-  languageText: {
-    fontSize: 10,
-    marginVertical: 20
-  },
   button: {
     width: 200,
     height: 45,

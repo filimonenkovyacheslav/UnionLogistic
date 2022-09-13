@@ -13,6 +13,7 @@ import SignIn from '../screens/SignIn/SignIn';
 import WelcomeScreen from '../screens/WelcomeScreen/WelcomeScreen';
 import Home from '../screens/Home/Home';
 import Tasks from '../screens/Tasks/Tasks';
+import Scan from '../screens/Scan/Scan';
 
 // function Feed({ navigation }) {
 //   return (
@@ -58,6 +59,7 @@ function MainNav() {
     <Main.Navigator>
       <Main.Screen name="Home" component={Home} />
       <Main.Screen name="Tasks" component={Tasks} />
+      <Main.Screen name="Scan" component={Scan} />
     </Main.Navigator>
   );
 }
