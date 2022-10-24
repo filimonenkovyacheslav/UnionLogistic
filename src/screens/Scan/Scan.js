@@ -16,7 +16,8 @@ class Scan extends Component {
             userName: props.route.params.userName,
             token: props.route.params.token,
             userRole: props.route.params.userRole,
-            tracking: props.route.params.tracking
+            tracking: props.route.params.tracking,
+            id: props.route.params.id
         };
     }
 
@@ -42,7 +43,7 @@ class Scan extends Component {
     }
 
     saveTracking = () => {
-      navToWithScan('Tasks', this.props, this.state)
+      navToWithScan('Add Tracking', this.props, this.state)
     }
 
     activeQR = () => {
@@ -61,8 +62,16 @@ class Scan extends Component {
                     {!scan && !ScanResult &&
                         <View style={styles.cardView} >
                             <Image source={images.camera} style={{height: 36, width: 36}}></Image>
-                            <Text numberOfLines={8} style={styles.descText}>Please move your camera {"\n"} over the Barcode</Text>
-                            <Image source={images.barCode} style={{margin: 20}}></Image>
+                            <Text numberOfLines={8} style={styles.descText}>
+                            Please move your camera {"\n"} over the Barcode
+                            </Text>
+                            <Image source={images.barCode} style={{margin: 0}}></Image>
+                            <TouchableOpacity onPress={this.saveTracking} style={styles.buttonScan}>
+                                <View style={styles.buttonWrapper}>
+                                <Image source={images.handly} style={{height: 36, width: 36, marginRight: 20}}></Image>
+                                <Text style={{...styles.buttonTextStyle, color: '#2196f3'}}>Input Handly</Text>
+                                </View>
+                            </TouchableOpacity>
                             <TouchableOpacity onPress={this.activeQR} style={styles.buttonScan}>
                                 <View style={styles.buttonWrapper}>
                                 <Image source={images.camera} style={{height: 36, width: 36, marginRight: 20}}></Image>

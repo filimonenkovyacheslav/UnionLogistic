@@ -70,7 +70,8 @@ const styles = {
         paddingRight: 25,
         paddingBottom: 5,
         paddingLeft: 25,
-        marginTop: 20
+        marginBottom: 10,
+        backgroundColor: 'white'
     },
     buttonScan2: {
         width: 100,

@@ -14,33 +14,8 @@ import WelcomeScreen from '../screens/WelcomeScreen/WelcomeScreen';
 import Home from '../screens/Home/Home';
 import Tasks from '../screens/Tasks/Tasks';
 import Scan from '../screens/Scan/Scan';
+import AddTracking from '../screens/AddTracking/AddTracking';
 
-// function Feed({ navigation }) {
-//   return (
-//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//       <Text>Feed Screen</Text>
-//       <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
-//       <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
-//     </View>
-//   );
-// }
-
-
-// function CustomDrawerContent(props) {
-//   return (
-//     <DrawerContentScrollView {...props}>
-//       <DrawerItemList {...props} />
-//       <DrawerItem
-//         label="Close drawer"
-//         onPress={() => props.navigation.closeDrawer()}
-//       />
-//       <DrawerItem
-//         label="Toggle drawer"
-//         onPress={() => props.navigation.toggleDrawer()}
-//       />
-//     </DrawerContentScrollView>
-//   );
-// }
 
 const Closed = createNativeStackNavigator();
 const Main = createNativeStackNavigator();
@@ -58,8 +33,15 @@ function MainNav() {
   return (
     <Main.Navigator>
       <Main.Screen name="Home" component={Home} />
-      <Main.Screen name="Tasks" component={Tasks} />
+      <Main.Screen name="Tasks" component={Tasks}
+        listeners={{
+          focus: (e) => {
+            e.target.updateTasksScreen
+          },
+        }}
+      />
       <Main.Screen name="Scan" component={Scan} />
+      <Main.Screen name="Add Tracking" component={AddTracking} />
     </Main.Navigator>
   );
 }
@@ -68,10 +50,6 @@ const Drawer = createDrawerNavigator();
 
 function MainDrawer() {
   return (
-    // <Drawer.Navigator
-    //   useLegacyImplementation
-    //   drawerContent={(props) => <CustomDrawerContent {...props} />}
-    // >
 
     <Drawer.Navigator
       screenOptions={{

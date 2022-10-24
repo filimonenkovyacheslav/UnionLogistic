@@ -15,12 +15,6 @@ export default function signIn(body) {
 
   return dispatch => {
     dispatch(signInBegin());
-/*const data = {
-  api_token: 'api_token_111',
-  name: 'Name Courier',
-  role: 'courier'
-}
-dispatch(signInSuccess(data));*/
 
     fetch(url, parameters)
         .then(res => res.json())

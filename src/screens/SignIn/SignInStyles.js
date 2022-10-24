@@ -73,6 +73,14 @@ export default StyleSheet.create({
     alignSelf: 'center',
     top: 10
   },
+  buttonDisabled: {
+    width: 200,
+    height: 45,
+    backgroundColor: '#ccc',
+    alignSelf: 'center',
+    borderRadius: 9,
+    top: -80
+  },
   link: {
     flexDirection: 'row',
     alignItems: 'center',

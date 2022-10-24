@@ -29,7 +29,23 @@ export const navToWithScan = (screen, props, data) => {
      userName: data.userName,
      token: data.token,
      userRole: data.userRole,
-     tracking: data.tracking
+     tracking: data.tracking,
+     id: data.id
+   }
+  })
+  if (navigation && navigation.closeDrawer) {
+    navigation.closeDrawer()
+  }
+}
+
+export const navToAfterUpdate = (screen, props, data) => {
+  const { navigation } = props
+  navigation.navigate('Home page', {
+   screen: screen,
+   params: {
+     userName: data.userName,
+     token: data.token,
+     userRole: data.userRole
    }
   })
   if (navigation && navigation.closeDrawer) {

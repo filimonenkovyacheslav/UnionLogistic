@@ -19,10 +19,8 @@ export default StyleSheet.create({
     borderRadius: 9,
     top: 10
   },
-  buttonText: {
-    color: '#fff',
-    fontSize: 15,
+  buttonImage: {
     alignSelf: 'center',
-    top: 10
+    marginVertical: '25%'
   }
 })
