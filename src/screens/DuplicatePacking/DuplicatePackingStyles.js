@@ -7,7 +7,12 @@ export default StyleSheet.create({
     height: height[100],
     backgroundColor: '#fff'
   },
-  textTitle: {
+  logoWarap: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10
+  },
+  textLogo: {
     fontSize: 28,
     fontWeight: 'bold'
   },
@@ -17,11 +22,14 @@ export default StyleSheet.create({
     backgroundColor: '#254680',
     alignSelf: 'center',
     borderRadius: 9,
-    top: 10
+    top: 10,
+    margin: 10
   },
-  buttonImage: {
+  buttonText: {
+    color: '#fff',
+    fontSize: 15,
     alignSelf: 'center',
-    marginVertical: '25%'
+    top: 10
   },
   dataFormField: {
     flexDirection: 'row',

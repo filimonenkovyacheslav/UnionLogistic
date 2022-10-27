@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { ScrollView, View, Image, Text, TouchableOpacity, Alert, Linking } from 'react-native'
+import { ScrollView, View, Image, Text, TouchableOpacity, Alert, Linking, TextInput } from 'react-native'
+import Spinner from 'react-native-loading-spinner-overlay'
 import styles from './TasksStyles'
 import images from '../../utils/image.utils'
 import TasksItem from '../TasksItem/TasksItem'
@@ -20,12 +21,14 @@ class Tasks extends Component {
         userName: props.route.params.userName,
         token: props.route.params.token,
         userRole: props.route.params.userRole,
-        tracking: props.route.params.tracking
+        tracking: props.route.params.tracking,
+        phoneNumber: ''
     };
     this.renderTasks = this.renderTasks.bind(this)
     this.handleBoxDone = this.handleBoxDone.bind(this)
     this.handleDownloadPL = this.handleDownloadPL.bind(this)
     this.handleAddTracking = this.handleAddTracking.bind(this)
+    this.searchByPhoneNumber = this.searchByPhoneNumber.bind(this)
 
     this.userData = {
       name: this.props.route.params.userName,
@@ -42,7 +45,7 @@ class Tasks extends Component {
 
 
   renderTasks(){
-    return this.props.tasks.map(task => {
+    return this.searchByPhoneNumber().map(task => {
       return(
         <TasksItem
           key={task.id}
@@ -141,6 +144,28 @@ class Tasks extends Component {
   }
 
 
+  setPhoneNumber = (value) => {
+    this.setState({ phoneNumber: value })
+  }
+
+
+  searchByPhoneNumber(){
+    let filtered = this.props.tasks
+    if (this.state.phoneNumber.length === 4 ) {
+      filtered = filtered.filter(task => {
+        return task.standard_phone.slice(-4) === this.state.phoneNumber;
+      })
+    }
+    else if (this.state.phoneNumber.length > 4 ){
+      filtered = filtered.filter(task => {
+        return task.standard_phone.indexOf(this.state.phoneNumber) !== -1;
+      })
+    }
+
+    return filtered
+  }
+
+
   render () {
 
     const { loading, error, loadingUpdate, errorUpdate } = this.props
@@ -159,6 +184,23 @@ class Tasks extends Component {
 
     return (
       <ScrollView style={styles.container}>
+        <Spinner
+          visible={loading}
+          textContent={'Loading ...'}
+        />
+        <View>
+          <View style={styles.dataFormField}>
+            <Text style={styles.dataFormTitle}>Search by phone</Text>
+          </View>
+          <TextInput
+            textContentType={'none'}
+            style={styles.textInputStyle}
+            placeholder={'Phone Number'}
+            value={this.state.phoneNumber}
+            onChangeText={this.setPhoneNumber}
+            autoCorrect={false}
+          />
+        </View>
         <View>
           {this.renderTasks()}
         </View>
